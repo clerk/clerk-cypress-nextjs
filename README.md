@@ -6,9 +6,10 @@ https://clerk.dev/docs/testing/cypress
 ## Getting Started
 
 1. add a .env.local file with your keys:
+```
 NEXT_PUBLIC_CLERK_FRONTEND_API=clerk.****.lcl.dev
 CLERK_API_KEY=test_****
-
+```
 2. Install deps
 ```bash
 npm install
