@@ -12,9 +12,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.9.1",
-    "install": "^0.13.0",
     "next": "13.0.0",
-    "npm": "^8.19.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
