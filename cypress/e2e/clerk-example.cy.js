@@ -33,12 +33,10 @@ describe("Signed out", () => {
 });
 
 describe("Signed in", () => {
-  before(() => {
-    cy.signIn();
-  });
-
   beforeEach(() => {
-    Cypress.Cookies.preserveOnce("__session", "__client_uat");
+    cy.session('signed-in', () => {
+      cy.signIn();
+    });
   });
 
   it("navigate to the dashboard", () => {

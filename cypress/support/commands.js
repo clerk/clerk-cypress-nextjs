@@ -39,7 +39,7 @@ Cypress.Commands.add(`signIn`, () => {
       expect(window.Clerk.isReady()).to.eq(true);
     })
     .then(async (window) => {
-      await cy.clearCookies({ domain: null });
+      await cy.clearCookies({ domain: window.location.domain });
       const res = await window.Clerk.client.signIn.create({
         identifier: "braden@clerk.dev",
         password: "clerkpassword1234",

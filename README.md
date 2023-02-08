@@ -7,8 +7,8 @@ https://clerk.dev/docs/testing/cypress
 
 1. add a .env.local file with your keys:
 ```
-NEXT_PUBLIC_CLERK_FRONTEND_API=clerk.****.lcl.dev
-CLERK_API_KEY=test_****
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_**************
+CLERK_SECRET_KEY=sk_test_**************
 ```
 2. Install deps
 ```bash
