@@ -29,3 +29,5 @@ npm run cypress:open
 5. Navigate through cypress and run the tests
 
 e2e testing -> chrome -> start e2e testing in chrome
+
+**If you are running NOT running on `localhost:3000`**, you will need to update the `baseUrl` in `cypress.config.js` to match your development server's URL.
