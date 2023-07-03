@@ -41,8 +41,8 @@ Cypress.Commands.add(`signIn`, () => {
     .then(async (window) => {
       await cy.clearCookies({ domain: window.location.domain });
       const res = await window.Clerk.client.signIn.create({
-        identifier: "braden@clerk.dev",
-        password: "clerkpassword1234",
+        identifier: Cypress.env(`test_email`),
+        password: Cypress.env(`test_password`),
       });
 
       await window.Clerk.setActive({
