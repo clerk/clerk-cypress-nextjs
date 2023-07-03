@@ -1,6 +1,6 @@
 {
   "name": "clerk-cypress-example",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,14 +11,14 @@
     "cypress:run": "cypress run"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.9.1",
-    "next": "13.0.0",
+    "@clerk/nextjs": "^4.21.13",
+    "next": "^13.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "cypress": "^12.5.1",
     "eslint": "8.26.0",
-    "eslint-config-next": "13.0.0"
+    "eslint-config-next": "13.4.1"
   }
 }

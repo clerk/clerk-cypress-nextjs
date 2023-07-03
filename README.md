@@ -5,27 +5,29 @@ https://clerk.dev/docs/testing/cypress
 
 ## Getting Started
 
-1. add a .env.local file with your keys:
-```
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_**************
-CLERK_SECRET_KEY=sk_test_**************
-```
-2. Install deps
+1. Sign up for a Clerk account at https://clerk.dev.
+2. Go to Clerk's dashboard and create an application.
+3. Set the required Clerk environment variables as shown in the [example env file](./env.local.sample).
+4. `npm install` the required dependencies.
+5. `npm run dev` to launch the development server.
+
+## Testing
+
+1. Create a test account using [Clerk Dashboard](https://dashboard.clerk.com) or by signing up on the application.
+2. Copy the `cypress.env.example.json` file to `cypress.env.json`.
+
 ```bash
-npm install
+cp cypress.env.example.json cypress.env.json
 ```
 
-3. Run the development server:
-```bash
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) with your browser to make sure the application is working.
-
+3. Set `test_email` and `test_password` to the credentials of the test account.
 4. Open Cypress while keeps the development server running:
+
 ```bash
 npm run cypress:open
 ```
-
 5. Navigate through cypress and run the tests
 
 e2e testing -> chrome -> start e2e testing in chrome
+
+**If you are running NOT running on `localhost:3000`**, you will need to update the `baseUrl` in `cypress.config.js` to match your development server's URL.

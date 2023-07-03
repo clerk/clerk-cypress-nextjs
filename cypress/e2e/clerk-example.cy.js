@@ -34,7 +34,7 @@ describe("Signed out", () => {
 
 describe("Signed in", () => {
   beforeEach(() => {
-    cy.session('signed-in', () => {
+    cy.session("signed-in", () => {
       cy.signIn();
     });
   });
