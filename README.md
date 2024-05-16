@@ -1,4 +1,4 @@
-This is a simple Clerk+Next.js application showing how you can create and run e2e Cypress tests for your application
+This is a simple Clerk+Next.js application showing how you can run e2e Cypress tests for your application using testing tokens.
 
 ## Accompanying documentation
 https://clerk.dev/docs/testing/cypress
@@ -20,7 +20,7 @@ https://clerk.dev/docs/testing/cypress
 cp cypress.env.example.json cypress.env.json
 ```
 
-3. Set `test_email` and `test_password` to the credentials of the test account.
+3. Set `test_user` and `test_password` to the credentials of the test account.
 4. Open Cypress while keeps the development server running:
 
 ```bash
@@ -30,4 +30,4 @@ npm run cypress:open
 
 e2e testing -> chrome -> start e2e testing in chrome
 
-**If you are running NOT running on `localhost:3000`**, you will need to update the `baseUrl` in `cypress.config.js` to match your development server's URL.
+**If you are running NOT running on `localhost:3000`**, you will need to update the `baseUrl` in `cypress.config.ts` to match your development server's URL.

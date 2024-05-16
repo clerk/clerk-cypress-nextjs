@@ -6,10 +6,10 @@ export default function Home() {
       <h1>Clerk-Cypress example</h1>
       <div>
         <SignedIn>
-          <UserButton />
+          <p>signed-in</p>
         </SignedIn>
         <SignedOut>
-          <SignInButton />
+          <p>signed-out</p>
         </SignedOut>
       </div>
     </main>
