@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import type { Clerk } from '@clerk/types';
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -25,16 +26,47 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
+declare global {
+    namespace Cypress {
+        interface Chainable {
+            signOut(): Chainable<void>
+            signIn(): Chainable<void>
+        }
+    }
+    interface Window {
+        Clerk: Clerk;
+    }
+}
+
+Cypress.Commands.add(`signOut`, () => {
+    cy.log(`sign out by clearing all cookies.`);
+    cy.clearCookies({ domain: null });
+  });
+  
+Cypress.Commands.add(`signIn`, () => {
+    cy.log(`Signing in.`);
+    cy.visit(`/`);
+
+    cy.window()
+        .should((window) => {
+            expect(window).to.not.have.property(`Clerk`, undefined);
+            expect(window.Clerk.loaded).to.eq(true);
+        })
+        .then(async (window) => {
+            cy.clearCookies({ domain: window.location.domain });
+
+            const res = await window.Clerk.client.signIn.create({
+                identifier: Cypress.env(`test_email`),
+                password: Cypress.env(`test_password`),
+            });
+
+            await window.Clerk.setActive({
+                session: res.createdSessionId,
+            });
+
+            cy.log(`Finished Signing in.`);
+        });
+});
 
 // Prevent TypeScript from reading file as legacy script
 export {};
