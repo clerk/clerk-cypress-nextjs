@@ -1,15 +1,17 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 
 export default function Home() {
+  const {user} = useUser();
+
   return (
     <main>
       <h1>Clerk-Cypress example</h1>
       <div>
         <SignedIn>
-          <UserButton />
+          <p>signed-in, {user?.id}</p>
         </SignedIn>
         <SignedOut>
-          <SignInButton />
+          <p>signed-out</p>
         </SignedOut>
       </div>
     </main>
