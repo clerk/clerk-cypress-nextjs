@@ -39,13 +39,12 @@ declare global {
 }
 
 Cypress.Commands.add(`signOut`, () => {
-    cy.log(`sign out by clearing all cookies.`);
-    cy.clearCookies({ domain: null });
+    cy.log(`Sign out by clearing all cookies.`);
+    cy.clearCookies({ domain: null, });
   });
   
 Cypress.Commands.add(`signIn`, () => {
     cy.log(`Signing in.`);
-    cy.visit(`/`);
 
     cy.window()
         .should((window) => {
@@ -53,10 +52,8 @@ Cypress.Commands.add(`signIn`, () => {
             expect(window.Clerk.loaded).to.eq(true);
         })
         .then(async (window) => {
-            cy.clearCookies({ domain: window.location.domain });
-
             const res = await window.Clerk.client.signIn.create({
-                identifier: Cypress.env(`test_email`),
+                identifier: Cypress.env(`test_user`),
                 password: Cypress.env(`test_password`),
             });
 

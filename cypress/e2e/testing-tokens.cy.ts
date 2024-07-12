@@ -9,8 +9,6 @@ describe("Testing Tokens", () => {
   it("sign in", () => {
     setupClerkTestingToken();
 
-    console.log('Cypress.env', Cypress.env('test_user'));
-
     cy.visit('/protected');
 
     cy.contains('h1', 'Sign in');
@@ -27,13 +25,44 @@ describe("Testing Tokens", () => {
     cy.url().should('include', '/protected');
     cy.contains('h1', 'This is a PROTECTED page');
 
+    cy.visit('/');
+    cy.contains('signed-in');
+
+  });
+
+  // Account Portal example
+  // it("sign in with Account Portal redirects", () => {
+  //   setupClerkTestingToken();
+
+  //   cy.origin('https://relieved-chamois-53.accounts.dev', () => {
+  //     cy.visit('http://localhost:3000/protected');
+
+  //     cy.contains('h1', 'Sign in');
+  //     cy.get('.cl-signIn-root').should('exist');
+  //     cy.get('input[name=identifier]').type(Cypress.env('test_user'));
+  
+  //     cy.get('.cl-formButtonPrimary').contains('button', 'Continue').click();
+  //     cy.get('input[name=password]').type(Cypress.env('test_password'));
+  
+  
+  //     cy.get('.cl-formButtonPrimary').contains('button', 'Continue').click();
+  //   });
+
+  //   cy.url().should('include', '/protected');
+  //   cy.contains('h1', 'This is a PROTECTED page');
+
+  // });
+
+  it("sign in with command", () => {
+    setupClerkTestingToken();
+    cy.visit(`/`);
+    cy.signIn();
+    cy.visit('/protected');
+    cy.contains('h1', 'This is a PROTECTED page');
   });
 
   it("sign up", () => {
     setupClerkTestingToken();
-
-    cy.visit('/protected');
-    cy.contains('h1', 'Sign In');
 
     cy.visit('/sign-up');
     cy.contains('h1', 'Sign Up');
