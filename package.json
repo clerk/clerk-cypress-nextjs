@@ -11,19 +11,19 @@
     "cypress:run": "cypress run --e2e"
   },
   "dependencies": {
-    "@clerk/nextjs": "5.0.12",
-    "next": "14.2.3",
+    "@clerk/nextjs": "5.2.3",
+    "next": "14.2.5",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@clerk/testing": "^1.1.2",
+    "@clerk/testing": "^1.1.10",
     "@types/node": "20.12.12",
     "@types/react": "18.3.2",
     "@types/react-dom": "18.3.0",
-    "cypress": "13.9.0",
+    "cypress": "13.13.0",
     "eslint": "^8.6.0",
     "eslint-config-next": "14.2.3",
-    "typescript": "5.4.5"
+    "typescript": "5.5.3"
   }
 }
