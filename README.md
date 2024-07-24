@@ -1,11 +1,11 @@
 This is a simple Clerk+Next.js application showing how you can run e2e Cypress tests for your application using testing tokens.
 
 ## Accompanying documentation
-https://clerk.dev/docs/testing/cypress
+https://clerk.com/docs/testing/cypress
 
 ## Getting Started
 
-1. Sign up for a Clerk account at https://clerk.dev.
+1. Sign up for a Clerk account at https://clerk.com.
 2. Go to Clerk's dashboard and create an application.
 3. Set the required Clerk environment variables as shown in the [example env file](./env.local.sample).
 4. `npm install` the required dependencies.
