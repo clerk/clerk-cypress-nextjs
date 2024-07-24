@@ -34,7 +34,7 @@ describe("Testing Tokens", () => {
   // it("sign in with Account Portal redirects", () => {
   //   setupClerkTestingToken();
 
-  //   cy.origin('https://relieved-chamois-53.accounts.dev', () => {
+  //   cy.origin('', () => {
   //     cy.visit('http://localhost:3000/protected');
 
   //     cy.contains('h1', 'Sign in');
@@ -53,12 +53,21 @@ describe("Testing Tokens", () => {
 
   // });
 
-  it("sign in with command", () => {
-    setupClerkTestingToken();
+  it("sign in and sign out with custom command", () => {
     cy.visit(`/`);
-    cy.signIn();
+    cy.clerkSignIn({ 
+      strategy: 'password', 
+      identifier: Cypress.env('test_user'), 
+      password: Cypress.env('test_password') 
+    });
     cy.visit('/protected');
     cy.contains('h1', 'This is a PROTECTED page');
+    cy.visit('/');
+    cy.clerkSignOut();
+    cy.visit('/protected');
+    cy.get('.cl-signIn-root').should('exist');
+    cy.visit('/');
+    cy.contains('p', 'signed-out');
   });
 
   it("sign up", () => {
