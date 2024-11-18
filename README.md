@@ -46,7 +46,7 @@ Easily deploy the template to Vercel with the button below. You will need to set
 ## Running the template
 
 ```bash
-git clone https://github.com/clerk/clerk-nextjs-app-quickstart
+npm run cypress:open
 ```
 
 To run the example locally, you need to:
